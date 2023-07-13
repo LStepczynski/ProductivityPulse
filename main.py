@@ -1,4 +1,4 @@
-from productivityPulse import ProductivityPulse
+from controlPanel import ControlPanel
 
 if __name__ == '__main__':
-    ProductivityPulse()
+    ControlPanel()
