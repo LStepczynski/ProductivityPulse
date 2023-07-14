@@ -8,8 +8,9 @@ import datetime
 class ControlPanel:
     def __init__(self) -> None:
         self.window_list = list()
+        self.stop_event = threading.Event()
 
-        t1 = threading.Thread(target=lambda: ProductivityPulse(self.window_list))
+        t1 = threading.Thread(target=lambda: ProductivityPulse(self.stop_event, self.window_list))
         t1.start()
 
 
@@ -30,7 +31,12 @@ class ControlPanel:
 
         self.countup()
 
+        self.root.protocol("WM_DELETE_WINDOW", self.on_close)
         self.root.mainloop()
+
+        self.stop_event.set()
+        t1.join()
+        
     
     def countup(self):
         self.count += 1
@@ -42,3 +48,7 @@ class ControlPanel:
         time_string = str(time_delta)
         hours, minutes, seconds = time_string.split(':')
         return f"{hours.zfill(2)}:{minutes.zfill(2)}:{seconds.zfill(2)}"
+    
+    def on_close(self):
+        self.stop_event.set()
+        self.root.destroy()

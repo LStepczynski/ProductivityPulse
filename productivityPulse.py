@@ -7,10 +7,11 @@ from KandL import extract
 
 class ProductivityPulse:
     """Measures how much time is spent on all focused windows"""
-    def __init__(self, window_list) -> None:
+    def __init__(self, stop_event, window_list) -> None:
         """Checks what window is focused and starts counting"""
         self.window_list = window_list
-        while True:
+        self.stop_event = stop_event
+        while not self.stop_event.is_set():
             sleep(1)
 
             should_add = True # Determines if the focused window should be added to the window list
