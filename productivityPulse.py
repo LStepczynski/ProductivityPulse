@@ -1,8 +1,6 @@
 import pygetwindow as gw
 import win32gui, win32process, psutil
 from time import sleep
-from grapths import Plot
-from KandL import extract
 
 
 class ProductivityPulse:
