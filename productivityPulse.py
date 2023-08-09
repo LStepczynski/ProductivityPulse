@@ -1,4 +1,3 @@
-import pygetwindow as gw
 import win32gui, win32process, psutil
 from time import sleep
 
@@ -35,13 +34,5 @@ class ProductivityPulse:
             pid = win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow())
             return(psutil.Process(pid[-1]).name())
         except:
-            return None
-    
-    def active_window_title(self) -> str:
-        try:
-            window_handle = win32gui.GetForegroundWindow()
-            window_title = win32gui.GetWindowText(window_handle)
-            return window_title
-        except: 
             return None
 

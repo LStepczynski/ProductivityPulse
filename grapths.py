@@ -37,6 +37,7 @@ class Plot:
         self.window_label = tk.Label(self.root, text="Time Spent", font=('', 20))
         self.window_label.pack()
 
+        # Contains all the DataBox() instances
         self.data_container = tk.Frame(self.root)
         self.data_container.pack()
 
