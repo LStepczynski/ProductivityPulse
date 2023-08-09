@@ -18,7 +18,7 @@ class ControlPanel:
         # Basic configuration
         self.root = tk.Tk()
         self.root.geometry("500x350")
-        self.root.title("Productivity Pulse Control Panel")
+        self.root.title("Productivity Pulse Control Panel by LStep")
 
         self.validate_func = self.root.register(self.validate_spinbox_input)
 
@@ -82,8 +82,9 @@ class ControlPanel:
                                             validate="key", 
                                             validatecommand=(self.validate_func, "%P"))
         self.minute_rest_input.grid(row=1, column=1)
-
-        self.create_timer_button = tk.Button(self.root, # Button used to create the timer
+        
+        # Button used to create the timer
+        self.create_timer_button = tk.Button(self.root, 
                                              text="Create", 
                                              font=("", 15), 
                                              command=lambda: Timer(int(self.minute_work_input.get()), 
