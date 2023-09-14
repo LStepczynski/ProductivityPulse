@@ -1,0 +1,6 @@
+Productivity Pulse is an application designed to maximize the productivity of the user.
+By tracking what apps are open on the computer Productivivty Pulse is able to report to
+the user how long he spent on each app. Additionaly the user can create a timer that helps
+to separate work from rest by alarms.
+
+Made by LStepczynski

@@ -1,8 +1,7 @@
 import tkinter as tk
 from productivityPulse import ProductivityPulse
 from productivity_timer import Timer
-from grapths import Plot
-from KandL import extract
+from graphs import Plot
 import threading
 import datetime
 
@@ -35,7 +34,7 @@ class ControlPanel:
         # Button used to display the time info
         self.history_button = tk.Button(self.history_container, 
                                         text="Show History", font=("", 15), 
-                                        command=lambda: Plot(extract(self.window_list, 0), extract(self.window_list, -1), self.mode))
+                                        command=lambda: Plot(self.extract(self.window_list, 0), self.extract(self.window_list, -1), self.mode))
         self.history_button.grid(row=0, column=0, padx=20)
 
         # Allows user to choose if they want to see the information in a table or a graph
@@ -129,3 +128,10 @@ class ControlPanel:
         """Closes all the processes of the application"""
         self.stop_event.set()
         self.root.destroy()
+    
+    def extract(self, matrix, index):
+        """Extracts elements at the specified 'index' from each sublist in 'matrix' and returns a list containing these extracted values."""
+        extracted_values = []
+        for list in matrix:
+            extracted_values.append(list[index])
+        return extracted_values 

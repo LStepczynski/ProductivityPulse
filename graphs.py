@@ -31,7 +31,7 @@ class Plot:
         self.items_in_row = 4 # How much items will be in a row
 
         self.root = tk.Tk()
-        self.root.geometry(f"400x{(len(self.values) // self.items_in_row)*65 + 110}")
+        self.root.geometry(f"550x{(len(self.values) // self.items_in_row)*65 + 110}")
         self.root.title("Data Display")
 
         self.window_label = tk.Label(self.root, text="Time Spent", font=('', 20))
